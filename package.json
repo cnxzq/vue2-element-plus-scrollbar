@@ -1,0 +1,8 @@
+{
+  "name": "vue2-element-plus-scrollbar",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/cnxzq/vue2-element-plus-scrollbar.git",
+  "author": "xczq <290353142@qq.com>",
+  "license": "MIT"
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrollbar</title>
+    <link rel="stylesheet" href="../src/scrollbar.css">
+</head>
+<body>
+    <div id="app">
+        <h1>Scrollbar 演示</h1>
+
+
+        <h1>基础用法</h1>
+
+        <scrollbar height="200px">
+            <p class="item" v-for="item in 20" :key="item">{{ item }}/20</p>
+        </scrollbar>
+
+        <label><input type="checkbox" v-model="scrollbarProps.always">always</label>
+        <label><input type="checkbox" v-model="scrollbarProps.native">native</label>
+        <label><input type="checkbox" v-model="scrollbarProps.noresize">noresize(true:提高性能)</label>
+        <label>
+            width:
+            <select v-model="scrollbarProps.width">
+                <option value="200px">200px</option>
+                <option value="">noset</option>
+            </select>
+        </label>
+        
+        <scrollbar height="200px" 
+        v-bind="scrollbarProps" 
+        :style="{width:scrollbarProps.width}"
+        style="border:1px solid #ccc;">
+            <p class="item" v-for="item in 20" :key="item" style="width:1000px;">{{ item }}</p>
+        </scrollbar>
+    </div>
+    <script src="https://unpkg.com/vue@2.6.14/dist/vue.js"></script>
+    <script src="../src/ResizeObserver.js"></script>
+    <script src="../src/scrollbar.js"></script>
+    <script>
+        new Vue({
+            components:{Scrollbar},
+            el:"#app",
+            data(){
+                return {
+                    scrollbarProps:{
+                        always:false,
+                        native:false,
+                        noresize:false,
+                        width:''
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
